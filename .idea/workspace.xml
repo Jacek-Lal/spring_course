@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="245eaf1f-f97b-4ece-af9b-7ca611c9e9d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/springboot_demo/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/java/com/jacek/springboot/demo/springboot_demo/SpringbootDemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/java/com/jacek/springboot/demo/springboot_demo/rest/DemoRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springboot_demo/src/test/java/com/jacek/springboot/demo/springboot_demo/SpringbootDemoApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Jacek-Lal"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Jacek-Lal/spring_course.git",
+    "accountId": "a97cf492-e30b-454e-9b60-d7ca21a73de8"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="30BEPIrHdBdCYpfAgnVhf1Jbc3r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.SpringbootDemoApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Projects/Java/spring_course",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propCompiler"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="SpringbootDemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jacek.springboot.demo.springboot_demo.SpringbootDemoApplication" />
+      <module name="springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jacek.springboot.demo.springboot_demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SpringbootDemoApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="245eaf1f-f97b-4ece-af9b-7ca611c9e9d2" name="Changes" comment="" />
+      <created>1753092539115</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753092539115</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
