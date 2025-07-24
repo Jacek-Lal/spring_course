@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Student {
+
     private String name;
-    public String surname;
+    private String surname;
 }
