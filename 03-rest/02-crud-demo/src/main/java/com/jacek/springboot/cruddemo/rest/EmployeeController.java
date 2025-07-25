@@ -21,7 +21,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @PostMapping
-    public ResponseEntity<Employee> addEmployee(@Validated @RequestBody EmployeeDTO employee){
+    public ResponseEntity<Employee> addEmployee(@Valid @RequestBody EmployeeDTO employee){
         return new ResponseEntity<>(employeeService.add(employee), HttpStatus.CREATED);
     }
 
