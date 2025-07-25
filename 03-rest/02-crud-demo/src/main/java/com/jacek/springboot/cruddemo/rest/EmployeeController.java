@@ -1,12 +1,15 @@
 package com.jacek.springboot.cruddemo.rest;
 
+import com.jacek.springboot.cruddemo.dto.EmployeeDTO;
 import com.jacek.springboot.cruddemo.exceptions.EmployeeNotFoundException;
 import com.jacek.springboot.cruddemo.model.Employee;
 import com.jacek.springboot.cruddemo.repository.EmployeeRepository;
 import com.jacek.springboot.cruddemo.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +20,12 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    @PostMapping("/")
-    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+    @PostMapping
+    public ResponseEntity<Employee> addEmployee(@Validated @RequestBody EmployeeDTO employee){
         return new ResponseEntity<>(employeeService.add(employee), HttpStatus.CREATED);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<Employee> getAllEmployees(){
         return employeeService.getAll();
     }
@@ -33,8 +36,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee){
-
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id,
+                                                   @Valid @RequestBody EmployeeDTO employee){
         return ResponseEntity.ok(employeeService.update(id, employee));
     }
 

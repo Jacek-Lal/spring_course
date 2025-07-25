@@ -1,5 +1,6 @@
 package com.jacek.springboot.cruddemo.model;
 
+import com.jacek.springboot.cruddemo.dto.EmployeeDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,5 +26,10 @@ public class Employee {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
+    }
+    public Employee(EmployeeDTO employee){
+        this.first_name = employee.getFirst_name();
+        this.last_name = employee.getLast_name();
+        this.email = employee.getEmail();
     }
 }
