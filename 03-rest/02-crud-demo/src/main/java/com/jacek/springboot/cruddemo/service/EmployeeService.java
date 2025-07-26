@@ -8,7 +8,6 @@ import com.jacek.springboot.cruddemo.repository.EmployeeRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -21,13 +20,16 @@ public class EmployeeService {
     public Employee add(EmployeeDTO employee){
         return repository.save(new Employee(employee));
     }
+
     public List<Employee> getAll(){
         return repository.findAll();
     }
+
     public Employee getById(Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new EmployeeNotFoundException("Employee with id "+id+" not found"));
     }
+
     public Employee update(Long id, EmployeeDTO updatedEmployee){
         Employee employee = getById(id);
         employee.setFirst_name(updatedEmployee.getFirst_name());
@@ -36,6 +38,7 @@ public class EmployeeService {
 
         return repository.save(employee);
     }
+
     public void delete(Long id){
         Employee employee = getById(id);
         repository.delete(employee);
