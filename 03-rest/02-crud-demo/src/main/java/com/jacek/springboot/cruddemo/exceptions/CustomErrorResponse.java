@@ -6,8 +6,10 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmployeeErrorResponse {
+public class CustomErrorResponse {
     private int status;
     private String message;
     private long timestamp;
+
+
 }

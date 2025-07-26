@@ -1,6 +1,7 @@
 package com.jacek.springboot.cruddemo.rest;
 
 import com.jacek.springboot.cruddemo.dto.EmployeeDTO;
+import com.jacek.springboot.cruddemo.dto.EmployeePatchDTO;
 import com.jacek.springboot.cruddemo.exceptions.EmployeeNotFoundException;
 import com.jacek.springboot.cruddemo.model.Employee;
 import com.jacek.springboot.cruddemo.repository.EmployeeRepository;
@@ -45,6 +46,13 @@ public class EmployeeController {
     public ResponseEntity<Void> deleteEmployee(@PathVariable Long id){
         employeeService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Employee> patchEmployee(@PathVariable Long id,
+                                                  @Valid @RequestBody EmployeePatchDTO employee){
+
+        return ResponseEntity.ok(employeeService.patch(id, employee));
     }
 }
 

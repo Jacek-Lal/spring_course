@@ -1,14 +1,17 @@
 package com.jacek.springboot.cruddemo.service;
 
 import com.jacek.springboot.cruddemo.dto.EmployeeDTO;
+import com.jacek.springboot.cruddemo.dto.EmployeePatchDTO;
 import com.jacek.springboot.cruddemo.exceptions.EmployeeNotFoundException;
 import com.jacek.springboot.cruddemo.model.Employee;
 import com.jacek.springboot.cruddemo.repository.EmployeeRepository;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
@@ -36,5 +39,24 @@ public class EmployeeService {
     public void delete(Long id){
         Employee employee = getById(id);
         repository.delete(employee);
+    }
+
+    public Employee patch(Long id, @Valid EmployeePatchDTO updatedEmployee) {
+        Employee employee = getById(id);
+
+        updateIfPresent(updatedEmployee.getFirst_name(), "First name", employee::setFirst_name);
+        updateIfPresent(updatedEmployee.getLast_name(), "Last name", employee::setLast_name);
+        updateIfPresent(updatedEmployee.getEmail(), "Email", employee::setEmail);
+
+        return repository.save(employee);
+    }
+
+    private void updateIfPresent(String value, String fieldName, Consumer<String> setter){
+        if(value != null){
+            if (value.isBlank())
+                throw new IllegalArgumentException(fieldName + " cannot be blank if provided");
+
+            setter.accept(value);
+        }
     }
 }

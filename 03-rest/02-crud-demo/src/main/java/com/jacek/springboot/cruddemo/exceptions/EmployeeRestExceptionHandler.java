@@ -14,8 +14,8 @@ import java.util.Map;
 public class EmployeeRestExceptionHandler {
 
     @ExceptionHandler(value = EmployeeNotFoundException.class)
-    public ResponseEntity<EmployeeErrorResponse> handleException(EmployeeNotFoundException ex){
-        EmployeeErrorResponse error = new EmployeeErrorResponse();
+    public ResponseEntity<CustomErrorResponse> handleException(EmployeeNotFoundException ex){
+        CustomErrorResponse error = new CustomErrorResponse();
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setMessage(ex.getMessage());
         error.setTimestamp(System.currentTimeMillis());
@@ -23,23 +23,30 @@ public class EmployeeRestExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<EmployeeErrorResponse> handleJsonContentErrors(HttpMessageNotReadableException ex) {
-        EmployeeErrorResponse error = new EmployeeErrorResponse();
-        error.setStatus(HttpStatus.BAD_REQUEST.value());
-        error.setMessage(ex.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getFieldErrors().forEach(error ->
                 errors.put(error.getField(), error.getDefaultMessage()));
-        return ResponseEntity.badRequest().body(errors);
+
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<CustomErrorResponse> handleJsonContentErrors(HttpMessageNotReadableException ex) {
+        return buildBadRequestError(ex.getMessage());
+    }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<CustomErrorResponse> handleBlankArguments(IllegalArgumentException ex) {
+        return buildBadRequestError(ex.getMessage());
+    }
+
+    private ResponseEntity<CustomErrorResponse> buildBadRequestError(String message) {
+        CustomErrorResponse error = new CustomErrorResponse();
+        error.setStatus(HttpStatus.BAD_REQUEST.value());
+        error.setMessage(message);
+        error.setTimestamp(System.currentTimeMillis());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }
