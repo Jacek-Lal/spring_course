@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeService {
+public class EmployeeService implements IEmployeeService{
     private final EmployeeRepository repository;
 
     public Employee add(EmployeeDTO employee){
