@@ -3,7 +3,7 @@ package com.jacek.springboot.cruddemo.rest;
 import com.jacek.springboot.cruddemo.dto.EmployeeDTO;
 import com.jacek.springboot.cruddemo.dto.EmployeePatchDTO;
 import com.jacek.springboot.cruddemo.model.Employee;
-import com.jacek.springboot.cruddemo.service.EmployeeService;
+import com.jacek.springboot.cruddemo.service.EmployeeServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
-    private final EmployeeService employeeService;
+    private final EmployeeServiceImpl employeeService;
 
     @PostMapping
     public ResponseEntity<Employee> addEmployee(@Valid @RequestBody EmployeeDTO employee){
