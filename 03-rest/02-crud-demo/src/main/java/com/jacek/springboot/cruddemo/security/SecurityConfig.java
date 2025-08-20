@@ -6,6 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,14 +22,15 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(configurer ->
                 configurer
-                        .requestMatchers(HttpMethod.GET,"/api/employees").hasRole("EMPLOYEE")
-                        .requestMatchers(HttpMethod.GET,"/api/employees/**").hasRole("EMPLOYEE")
-                        .requestMatchers(HttpMethod.POST,"/api/employees").hasRole("MANAGER")
-                        .requestMatchers(HttpMethod.PUT,"/api/employees/**").hasRole("MANAGER")
-                        .requestMatchers(HttpMethod.PATCH, "/api/employees/**").hasRole("MANAGER")
-                        .requestMatchers(HttpMethod.DELETE,"/api/employees/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/employees").hasAuthority("EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET,"/api/employees/**").hasAuthority("EMPLOYEE")
+                        .requestMatchers(HttpMethod.POST,"/api/employees").hasAuthority("MANAGER")
+                        .requestMatchers(HttpMethod.PUT,"/api/employees/**").hasAuthority("MANAGER")
+                        .requestMatchers(HttpMethod.PATCH, "/api/employees/**").hasAuthority("MANAGER")
+                        .requestMatchers(HttpMethod.DELETE,"/api/employees/**").hasAuthority("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/api/users").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/users").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
         );
 
@@ -43,12 +45,10 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
     @Bean
-    public AuthenticationManager authManager(HttpSecurity http, PasswordEncoder encoder, UserDetailsService userDetailsService) throws Exception {
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(encoder)
-                .build();
+    public AuthenticationManager authManager(AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
     }
 
 }

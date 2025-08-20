@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="245eaf1f-f97b-4ece-af9b-7ca611c9e9d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/springboot_demo/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/java/com/jacek/springboot/demo/springboot_demo/SpringbootDemoApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/java/com/jacek/springboot/demo/springboot_demo/rest/DemoRestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot_demo/src/test/java/com/jacek/springboot/demo/springboot_demo/SpringbootDemoApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/java/com/jacek/springboot/cruddemo/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/java/com/jacek/springboot/cruddemo/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/java/com/jacek/springboot/cruddemo/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/java/com/jacek/springboot/cruddemo/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/03-rest/02-crud-demo/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Jacek-Lal"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jacek-Lal&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Jacek-Lal/spring_course.git",
-    "accountId": "a97cf492-e30b-454e-9b60-d7ca21a73de8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Jacek-Lal/spring_course.git&quot;,
+    &quot;accountId&quot;: &quot;a97cf492-e30b-454e-9b60-d7ca21a73de8&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -60,8 +53,10 @@
     "Application.SpringbootDemoApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Projects/Java/spring_course",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jacek/Projects/Java/spring_course/03-rest/02-crud-demo",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",

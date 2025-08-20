@@ -1,6 +1,5 @@
 package com.jacek.springboot.cruddemo.service;
 
-import com.jacek.springboot.cruddemo.model.Employee;
 import com.jacek.springboot.cruddemo.model.User;
 import com.jacek.springboot.cruddemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     public List<User> getAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
@@ -53,9 +52,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void delete(Long id) {
-
-    }
+    public void delete(Long id) {}
 
     @Override
     public User patch(Long id, User user) {
