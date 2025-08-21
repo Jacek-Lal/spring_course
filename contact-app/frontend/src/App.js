@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import { getContacts, saveContact, updatePhoto } from "./api/ContactService";
 import Header from "./components/Header";
 import ContactList from "./components/ContactList";
 import ContactDetails from "./components/ContactDetails";
 import Contact from "./components/Contact";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { toastError } from "./api/ToastService";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const modalRef = useRef();
@@ -22,7 +24,7 @@ function App() {
     status: "",
   });
 
-  const getAllContacts = async (page = 0, size = 10) => {
+  const getAllContacts = async (page = 0, size = 2) => {
     try {
       setCurrentPage(page);
 
@@ -31,11 +33,27 @@ function App() {
       console.log(data);
     } catch (err) {
       console.error(err);
+      toastError(err.message);
     }
   };
 
-  const updateContact = async () => {};
-  const updateImage = async () => {};
+  const updateContact = async (contact) => {
+    try {
+      const { data } = await saveContact(contact);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+      toastError(error.message);
+    }
+  };
+  const updateImage = async (formData) => {
+    try {
+      const { data: photoUrl } = await updatePhoto(formData);
+    } catch (error) {
+      console.error(error);
+      toastError(error.message);
+    }
+  };
 
   const toggleModal = (show) =>
     show ? modalRef.current.showModal() : modalRef.current.close();
@@ -47,28 +65,33 @@ function App() {
   const handleNewContact = async (event) => {
     event.preventDefault();
 
-    const { data } = await saveContact(values);
+    try {
+      const { data } = await saveContact(values);
 
-    const formData = new FormData();
-    formData.append("file", file, file.name);
-    formData.append("id", data.id);
+      const formData = new FormData();
+      formData.append("file", file, file.name);
+      formData.append("id", data.id);
 
-    const { data: photoUrl } = await updatePhoto(formData);
+      const { data: photoUrl } = await updatePhoto(formData);
 
-    toggleModal(false);
+      toggleModal(false);
 
-    setFile(undefined);
-    fileRef.current.value = null;
+      setFile(undefined);
+      fileRef.current.value = null;
 
-    setValues({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      title: "",
-      status: "",
-    });
-    getAllContacts();
+      setValues({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        title: "",
+        status: "",
+      });
+      getAllContacts();
+    } catch (error) {
+      console.error(error);
+      toastError(error.message);
+    }
   };
 
   useEffect(() => {
@@ -203,6 +226,7 @@ function App() {
           </form>
         </div>
       </dialog>
+      <ToastContainer />
     </>
   );
 }
